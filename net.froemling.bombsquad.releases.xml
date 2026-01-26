@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <releases>
-    <release version="1.7.60" date="2026-01-25" urgency="low" type="stable">
+    <release version="1.7.60" date="2026-01-26" urgency="low" type="stable">
         <description>
             <p>- Fun easter-egg when clicking characters in inventory window (Thanks
   EraOSBeta!)
@@ -31,7 +31,7 @@
                 </artifact>
             <artifact type="source" platform="x86_64-linux-gnu">
                 <location>https://github.com/Loup-Garou911XD/ballistica/releases/download/v1.7.60/linux_build_env.tar</location>
-                <checksum type="sha256">5c9d537cbcd8d2e239dee284f6223e4c90782835d86f5b5be31a14e7b3dc7f2e</checksum>
+                <checksum type="sha256">14f4901376ecc5c9e63f01e7500b55da9ab63fd7376f244951c970978c4cb7cb</checksum>
                 </artifact>
         </artifacts>
     </release>

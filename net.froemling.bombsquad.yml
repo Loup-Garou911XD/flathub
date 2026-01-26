@@ -15,48 +15,6 @@ sdk-extensions:
   - org.freedesktop.Sdk.Extension.llvm20
 
 modules:
-  # We are currently using org.freedesktop.Sdk version 25.08
-  # which provides python3.13 required by bombsquad
-  # if this ever changes then enable this python module to build
-  # the required python locally
-
-  # - name: Python
-  #   sources:
-  #     - type: archive
-  #       url: https://www.python.org/ftp/python/3.13.3/Python-3.13.3.tar.xz
-  #       sha256: 40f868bcbdeb8149a3149580bb9bfd407b3321cd48f0be631af955ac92c0e041
-  #   config-opts:
-  #     - --prefix=${FLATPAK_DEST}
-  #     - --enable-shared
-  #     - --enable-optimizations
-  #     - --with-computed-gotos
-  #     - --with-lto
-  #     - --enable-ipv6
-  #     - --with-system-expat
-  #     - --with-system-ffi
-  #     - --with-system-libmpdec
-  #     - --enable-loadable-sqlite-extensions
-  #     - --without-ensurepip
-  #   cleanup:
-  #     - /bin
-  #     - /include
-  #     - /lib/pkgconfig
-  #     - /share
-
-  - name: SDL2
-    buildsystem: cmake
-    builddir: true
-    cleanup:
-      - /bin
-      - /include
-      - /lib/pkgconfig
-      - /lib/cmake
-      - /share
-      - "*.a"
-    sources:
-      - type: git
-        url: https://github.com/libsdl-org/SDL
-        tag: release-2.32.8
 
   - name: rsync
     buildsystem: autotools
@@ -78,18 +36,11 @@ modules:
     build-options:
       append-path: /usr/lib/sdk/llvm20/bin
       prepend-ld-library-path: /usr/lib/sdk/llvm20/lib
-      build-args:
-        # - --share=network
     build-commands:
-      # FLATPAK_DEST=/app, FLATPAK_ID=net.froemling.bombsquad
       - mkdir -p ${FLATPAK_DEST}/bin/bombsquad
-      # we need to fix .venv/bin/python3.13 which is a symlink to system python
-      # of the machine the venv was created on, and then update the venv to fix
-      # all the shebangs according to the current build env
       - rm -f .venv/bin/python3.13
       - ln -s /usr/bin/python3.13 .venv/bin/python3.13
       - python3.13 -m venv --upgrade .venv
-      # Get rid of tools/pcommand and similar with wrong shebangs
       - make env-clean
       - make cmake-build
       - mv build/cmake/debug/ballisticakit build/cmake/debug/staged/
@@ -101,12 +52,10 @@ modules:
       - install -Dm644 ${FLATPAK_ID}.releases.xml ${FLATPAK_DEST}/share/metainfo/releases/${FLATPAK_ID}.releases.xml
 
     sources:
-      # - type: dir
-      #   path: ./../../
 
       - type: archive
         url: https://github.com/Loup-Garou911XD/ballistica/releases/download/v1.7.60/linux_build_env.tar
-        sha256: 5c9d537cbcd8d2e239dee284f6223e4c90782835d86f5b5be31a14e7b3dc7f2e
+        sha256: 14f4901376ecc5c9e63f01e7500b55da9ab63fd7376f244951c970978c4cb7cb
         strip-components: 0
 
       - type: file
