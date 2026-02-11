@@ -9,7 +9,8 @@ finish-args:
   - --socket=x11
   - --socket=pulseaudio
   - --device=dri
-  - --filesystem=~/.ballisticakit
+  - --device=input
+  - --filesystem=~/.ballisticakit:create
 
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.llvm20
@@ -55,7 +56,7 @@ modules:
 
       - type: archive
         url: https://github.com/Loup-Garou911XD/ballistica/releases/download/v1.7.60/linux_build_env.tar
-        sha256: 14f4901376ecc5c9e63f01e7500b55da9ab63fd7376f244951c970978c4cb7cb
+        sha256: a1347b52f55fb354235b8240b3fd3ca60db06e5e42d3b6e3b4370d5e94892bcb
         strip-components: 0
 
       - type: file
