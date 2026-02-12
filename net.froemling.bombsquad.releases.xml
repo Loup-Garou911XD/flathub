@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <releases>
-    <release version="1.7.60" date="2026-02-11" urgency="low" type="stable">
+    <release version="1.7.60" date="2026-02-12" urgency="low" type="stable">
         <description>
             <p>- Fixed a longstanding issue causing impact, roll, and skid sounds to not
   function.
@@ -49,8 +49,8 @@
                 <location>https://github.com/Loup-Garou911XD/ballistica/archive/refs/tags/v1.7.60.tar.gz</location>
                 </artifact>
             <artifact type="source" platform="x86_64-linux-gnu">
-                <location>https://github.com/Loup-Garou911XD/ballistica/releases/download/v1.7.60/linux_build_env.tar</location>
-                <checksum type="sha256">a1347b52f55fb354235b8240b3fd3ca60db06e5e42d3b6e3b4370d5e94892bcb</checksum>
+                <location>https://github.com/Loup-Garou911XD/ballistica/releases/download/v1.7.60/bombsquad_build_env.tar</location>
+                <checksum type="sha256">d2355a46d3e825a527d5459ea16907b2b1489dbe4b3e467de274334542a164ca</checksum>
                 </artifact>
         </artifacts>
     </release>
