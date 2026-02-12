@@ -55,7 +55,7 @@ modules:
 
       - type: archive
         url: https://github.com/Loup-Garou911XD/ballistica/releases/download/v1.7.60/bombsquad_build_env.tar
-        sha256: d2355a46d3e825a527d5459ea16907b2b1489dbe4b3e467de274334542a164ca
+        sha256: 49cc0dd37edd7990f3756777c6f0c5c77c431afec1c54a793a1cc183b013512c
         strip-components: 0
 
       - type: file
